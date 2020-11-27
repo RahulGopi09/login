@@ -315,19 +315,25 @@ table#alter th {
                 resolve("Congrats. 5 tasks have been Successfully Completed.");
               }
               else{
-                reject("Error: Need some more tasks to be completed");
+                  if(ctr>x)
+                  {
+                  resolve("Congrats. 5 tasks have been already Successfully Completed."); 
+                  }
+                  else
+                  {
+                      reject("Error: Need some more tasks to be completed");
+                    
+                  }
               }
-                if(ctr>x)
-                {
-                resolve("Congrats. 5 tasks have been already Successfully Completed.");
-
-                }
+                
 
             }); // promise end
 
           pr.then(function(s) { alert(s);})
             .catch(function(e){ alert(e);})
-            .then(function(m) { alert(m);});
+            .then(function(m) { alert(m);})
+            .catch(function(e2){ alert(e2);});
+                
 
 
             } // count function
