@@ -310,29 +310,21 @@ table#alter th {
               var pr=new Promise(function(resolve,reject)
             {
               var x=5;
-              if(ctr==x)
+              if(ctr>=x)
               {   
                 resolve("Congrats. 5 tasks have been Successfully Completed.");
               }
-              else{
-                  if(ctr>x)
-                  {
-                  resolve("Congrats. 5 tasks have been already Successfully Completed."); 
-                  }
-                  else
-                  {
+              else{            
                       reject("Error: Need some more tasks to be completed");
-                    
-                  }
               }
                 
 
             }); // promise end
 
           pr.then(function(s) { alert(s);})
-            .catch(function(e){ alert(e);})
-            .then(function(m) { alert(m);})
-            .catch(function(e2){ alert(e2);});
+            .catch(function(e){ alert(e);});
+//             .then(function(m) { alert(m);})
+//             .catch(function(e2){ alert(e2);});
                 
 
 
