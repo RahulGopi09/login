@@ -291,7 +291,7 @@ table#alter th {
                         
                     }
                     	
-                    tabCell.innerHTML="<input type='checkbox' id='check1' name='check1' onclick='count();' />";
+                    tabCell.innerHTML="<input type='checkbox' id='check1' name='check1' onclick='count(this);' />";
                     
                    // tr.innerHTML="<input type='checkbox' name='name1' />"
                 }
@@ -302,14 +302,17 @@ table#alter th {
                 divContainer.appendChild(table);
             }
 
-            function count()
+            function count(checkbox)
             {
-                if($(this).prop("checked") == true){
-                console.log("Checkbox is checked.");
-            }
-            else if($(this).prop("checked") == false){
-                console.log("Checkbox is unchecked.");
-            }
+                 if(checkbox.checked){
+                    alert('Checkbox has been ticked!');
+                     ctr++;
+                }
+                //If it has been unchecked.
+                else{
+                    alert('Checkbox has been unticked!');
+                    ctr--;
+                }
                 
                // ctr++;
               //alert("Checkbox is checked. Count>>"+ctr);
