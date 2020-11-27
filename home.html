@@ -37,11 +37,57 @@ table#alter th {
     background-color: gray;  
 }  
 
+.container {
+  height: 200px;
+  position: relative;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#showData {
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+
         div#todo {
           height: 700px;
           width: auto;
-          background-color: blanchedalmond;
+          background-color:skyblue;
         }
+
+        .btn3 {
+  height: auto;
+  width: inherit;
+  background-color: white;
+  color: #4CAF50;
+  border: 4px solid #4CAF50;
+  transition: border 0.7s ease-out, text-transform 1s, border-radius 1s ease-out;
+  cursor: pointer;
+  border-radius: 0px;
+  box-shadow: 10px 10px rgba(77, 77, 77, 0.5);
+}
+
+.btn3:hover {
+  border: 8px solid #4CAF50;
+  text-transform: uppercase;
+  border-radius: 30px;
+  text-decoration: underline;
+}
+
+.btn3:active {
+  background-color: #4CAF50;
+  color: white;
+  transform: translate3d(3px, 3px, 0px);
+  box-shadow: 7px 7px rgba(77, 77, 77, 0.5);
+}
+
     </style>
 </head>
 <body>
@@ -128,10 +174,21 @@ table#alter th {
 </div>
 <!--/.Carousel Wrapper-->
 
-      <div id="todo">
-        <input type="button"  onclick="CreateTableFromJSON()" value="Click Todo" />
-        <p id="showData"></p>
+<div id="todo">
+<div class="container">
+  <div class="vertical-center btn">
+    
+    <button class="btn3 btn" onclick="CreateTableFromJSON()" >Click Todo</button>
+  </div>
+  
+</div>
+<p id="showData"></p>
+</div>
+     
+        
+        
         <script>
+          var ctr=0;
             function CreateTableFromJSON() {
                 var myBooks = [
             
@@ -233,7 +290,9 @@ table#alter th {
   
                         
                     }
-                    tabCell.innerHTML="<input type='checkbox' id='check1' name='check1' />";
+                    	
+                    tabCell.innerHTML="<input type='checkbox' id='check1' name='check1' onclick='count();' />";
+                    
                    // tr.innerHTML="<input type='checkbox' name='name1' />"
                 }
         
@@ -242,48 +301,38 @@ table#alter th {
                 divContainer.innerHTML = "";
                 divContainer.appendChild(table);
             }
+
+            function count()
+            {
+                ctr++;
+              //alert("Checkbox is checked. Count>>"+ctr);
+              
+              var pr=new Promise(function(resolve,reject)
+            {
+              var x=5;
+              if(ctr==x)
+              {   
+                resolve("Congrats. 5 tasks have been Successfully Completed.");
+              }
+              else{
+                reject("Error: Need some more tasks to be completed");
+              }
+
+            }); // promise end
+
+          pr.then(function(s) { alert(s);})
+            .catch(function(e){ alert(e);});
+
+
+            } // count function
+
+            
+            
         
         </script>
-        <script>
-          $(document).ready(function(){
-            var check1=document.getElementById("check1");
+       
 
-var pr=Promise(function(resolve,reject)
-{
-  var ctr=0;
-
-  $("#check1").on("click", function(){
-      if(check1.checked) {
-          alert("Checkbox is checked.");
-      } else {
-          alert("Checkbox is unchecked.");
-      }
-  }); 
-
-  // if($("#checkboxId").is(':checked')){
-  //   alert("chckbox clicked");
-  //       // Code in the case checkbox is checked.
-  //   } else {
-  //       // Code in the case checkbox is NOT checked.
-  //   }
-  // $('#check1').attr('checked'); // "checked"
-  // // checked
-
-  // $("#check1").on('click', function(){
-  //   alert("chckbox clicked");
-  // });
-  // $( "#x" ).prop( "checked", true );
-
-
-
-
-
-
-});
-}); // document ready end
-        </script>
-
-      </div>
+  
     
 </body>
 </html>
