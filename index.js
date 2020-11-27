@@ -13,11 +13,12 @@ $(document).ready(function(){
         {
             if(usercheck(user,password))
             {
-                alert("Username is Valid");
+                alert("Success: Username is Valid");
                 password();
                // window.location.href = "home.html" 
             } else {
-                alert("Invalid username");
+                alert("Sorry: Invalid username");
+                 event.preventDefault();
                
             }
         } else {
@@ -49,12 +50,12 @@ $(document).ready(function(){
          {
              if(pass==12345)
              {
-                 alert("Password is valid");
+                 alert("Success: Password is valid");
                 return true;
                 
              }
              else{
-                 alert("Invalid password");
+                 alert("Sorry: Invalid password");
                  event.preventDefault();
                  return false;
              }
