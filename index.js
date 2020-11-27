@@ -50,11 +50,13 @@ $(document).ready(function(){
              if(pass==12345)
              {
                  alert("Password is valid");
-                
+                return true;
                 
              }
              else{
                  alert("Invalid password");
+                 event.preventDefault();
+                 return false;
              }
          }
          else
