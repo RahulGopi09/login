@@ -304,7 +304,14 @@ table#alter th {
 
             function count()
             {
-                ctr++;
+                if($(this).prop("checked") == true){
+                console.log("Checkbox is checked.");
+            }
+            else if($(this).prop("checked") == false){
+                console.log("Checkbox is unchecked.");
+            }
+                
+               // ctr++;
               //alert("Checkbox is checked. Count>>"+ctr);
               
               var pr=new Promise(function(resolve,reject)
